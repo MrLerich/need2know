@@ -1,3 +1,19 @@
+# class Singleton(object):
+#     obj = None  # единственный экземпляр класса
+#
+#     def __new__(cls, *args, **kwargs):
+#
+#         if cls.obj is None:
+#             cls.obj = object.__new__(cls, *args, **kwargs)
+#     return cls.obj
+#
+#
+# single = Singleton()
+# single.attr = 42
+# newSingle = Singleton()
+# newSingle.attr  # 42
+
+
 class Singleton:
     """Шаблон предоставления глобального доступа к состоянию, объект всегда один """
     instance = None  # изначально нет
@@ -54,6 +70,7 @@ class Singleton:
         print('do smth hard work')
         # parse, db, work with data/resources etc...
         self.data = 101
+
 
 class Monostate:
     """

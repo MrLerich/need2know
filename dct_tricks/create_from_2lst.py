@@ -24,7 +24,7 @@ street: list = ['a', 'b', 'c', 'd', 'a']
 house_number: list = [1, 2, 3, 4, 5]
 
 data_after_1st_step: list = list(zip(street, house_number))
-print(f'data_after_1st_step: {data_after_1st_step}')
+# print(f'data_after_1st_step: {data_after_1st_step}')
 
 
 ## ver1
