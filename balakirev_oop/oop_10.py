@@ -23,3 +23,51 @@
 # Затем методом remove() удалите связку для английского слова car. С помощью метода translate() переведите слово go. Результат выведите на экран в виде строки из всех русских слов, связанных со словом go:
 #
 # Вывод в формате: идти ехать ходить
+# class Translator:
+#     def add(self, eng, rus):
+#         if eng not in self.__dict__:
+#             setattr(self, eng, [rus])
+#         else:
+#             self.__dict__[eng].append(rus)
+#
+#     def remove(self, eng):
+#         self.__dict__.pop(eng, None)
+#
+#     def translate(self, eng):
+#         return self.__dict__[eng]
+
+class Translator:
+    def add(self, eng, rus):
+        if 'tr' not in self.__dict__:
+            self.tr = {}
+        self.tr.setdefault(eng, [])
+
+        if rus not in self.tr[eng]:
+            self.tr[eng].append(rus)
+
+    def remove(self, eng):
+        self.tr.pop(eng, False)
+
+    def translate(self, eng):
+        return self.tr[eng]
+
+
+tr = Translator()
+tr.add("tree", "дерево")
+tr.add("car", "машина")
+tr.add("car", "автомобиль")
+tr.add("leaf", "лист")
+tr.add("river", "река")
+tr.add("go", "идти")
+tr.add("go", "ехать")
+tr.add("go", "ходить")
+tr.add("milk", "молоко")
+
+tr.remove('car')
+print(*tr.translate('go'))
+
+#
+# for pair_of_words in ('tree - дерево', 'car - машина', 'car - автомобиль',
+#                       'leaf - лист', 'river - река', 'go - идти',
+#                       'go - ехать', 'go - ходить', 'milk - молоко'):
+#     tr.add(*pair_of_words.split(' - '))
